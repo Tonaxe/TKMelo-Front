@@ -1,0 +1,107 @@
+<section id="precios" class="pricing" aria-labelledby="pricing-title" itemscope
+    itemtype="https://schema.org/OfferCatalog">
+    <div class="container">
+        <header class="pricing__header">
+            <h2 id="pricing-title" itemprop="name">Precios</h2>
+            <p class="dim" itemprop="description">Empieza gratis. Súbete a Pro cuando quieras.</p>
+        </header>
+
+        <div class="pricing__grid" role="list" itemprop="itemListElement" itemscope
+            itemtype="https://schema.org/ItemList">
+
+            <article class="plan" role="listitem" aria-labelledby="plan-free-title" itemscope
+                itemtype="https://schema.org/Offer">
+                <meta itemprop="category" content="Gratis" />
+                <header class="plan__head">
+                    <h3 id="plan-free-title" itemprop="name">Gratis</h3>
+                    <p class="plan__subtitle dim" itemprop="description">Perfecto para probar TKMelo</p>
+                </header>
+
+                <div class="plan__price">
+                    <span class="price__current" itemprop="price" content="0">
+                        <span class="price__amount">0</span>€
+                    </span>
+                    <span class="price__period">/mes</span>
+                    <meta itemprop="priceCurrency" content="EUR" />
+                </div>
+
+                <ul class="plan__features">
+                    <li><i class="bi bi-check2"></i> 20 mensajes/mes</li>
+                    <li><i class="bi bi-check2"></i> Plantillas básicas</li>
+                    <li><i class="bi bi-check2"></i> 1 plataforma conectada</li>
+                    <li class="dim"><i class="bi bi-dash"></i> Sin historial extendido</li>
+                </ul>
+
+                <div class="plan__cta">
+                    <a routerLink="/register" class="btn btn-outline" aria-label="Empezar gratis con TKMelo">Empezar
+                        gratis</a>
+                    <span class="plan__note dim">Oferta predeterminada</span>
+                </div>
+            </article>
+
+            <article class="plan plan--pro" role="listitem" aria-labelledby="plan-pro-title" itemscope
+                itemtype="https://schema.org/Offer">
+                <meta itemprop="category" content="Pro" />
+                <div class="plan__badge" aria-hidden="true">70% dto</div>
+
+                <header class="plan__head">
+                    <h3 id="plan-pro-title" itemprop="name">Pro</h3>
+                    <p class="plan__subtitle dim" itemprop="description">Todo lo que necesitas para destacar</p>
+                </header>
+
+                <div class="plan__price">
+                    <span class="price__current price__current--promo" itemprop="price" content="2.99">
+                        <span class="price__amount">2,99</span>€
+                    </span>
+                    <span class="price__period">/mes</span>
+                    <span class="price__old" aria-label="Precio anterior 9,99 euros">9,99€</span>
+                    <meta itemprop="priceCurrency" content="EUR" />
+                    <link itemprop="availability" href="https://schema.org/InStock" />
+                </div>
+
+                <ul class="plan__features">
+                    <li><i class="bi bi-check2"></i> Mensajes ilimitados</li>
+                    <li><i class="bi bi-check2"></i> Tono y estilo personalizados</li>
+                    <li><i class="bi bi-check2"></i> 5 plataformas conectadas</li>
+                    <li><i class="bi bi-check2"></i> Historial y aprendizaje continuo</li>
+                    <li><i class="bi bi-check2"></i> Soporte prioritario</li>
+                </ul>
+
+                <div class="plan__cta">
+                    <a routerLink="/register" class="btn btn-primary"
+                        aria-label="Actualizar a Pro por 2,99 euros al mes">Pásate a Pro</a>
+                    <span class="plan__note dim">Oferta de lanzamiento limitada</span>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "OfferCatalog",
+    "name": "Planes de precios TKMelo",
+    "url": "https://tkmelo.es/precios",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "Gratis",
+        "description": "Plan gratuito con 20 mensajes al mes, plantillas básicas y 1 plataforma conectada.",
+        "price": "0",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock"
+      },
+      {
+        "@type": "Offer",
+        "name": "Pro",
+        "description": "Plan Pro con mensajes ilimitados, estilo personalizado, 5 plataformas conectadas, historial y soporte prioritario.",
+        "price": "2.99",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "priceValidUntil": "2025-12-31",
+        "discount": "70%"
+      }
+    ]
+  }
+  </script>
+</section>

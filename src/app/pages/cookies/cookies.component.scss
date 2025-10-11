@@ -1,0 +1,141 @@
+.cookies {
+    padding: clamp(40px, 6vw, 72px) 0;
+    background: var(--color-bg);
+
+    a {
+        color: var(--color-primary);
+        text-decoration: none;
+
+        &:hover {
+            color: var(--color-primary-dark);
+        }
+    }
+}
+
+.cookies__header {
+    text-align: center;
+    margin-bottom: 24px;
+
+    h1 {
+        margin: 0 0 8px;
+        font-size: clamp(1.6rem, 1.2rem + 1.2vw, 2.2rem);
+    }
+
+    .cookies__meta {
+        margin-top: 6px;
+        font-size: 0.9rem;
+    }
+}
+
+.cookies__toc {
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    padding: 16px;
+    margin: 0 auto 22px;
+    max-width: 920px;
+    background: var(--color-bg);
+
+    ol {
+        margin: 0;
+        padding-left: 18px;
+        display: grid;
+        gap: 8px;
+    }
+
+    a {
+        color: var(--color-text);
+        transition: color var(--transition);
+
+        &:hover {
+            color: var(--color-primary);
+        }
+    }
+}
+
+.cookies__section {
+    max-width: 920px;
+    margin: 0 auto 22px;
+
+    h2 {
+        margin: 0 0 10px;
+        font-size: clamp(1.15rem, 1rem + 0.6vw, 1.6rem);
+    }
+
+    p {
+        margin: 0 0 10px;
+    }
+}
+
+.cookies__cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 10px;
+}
+
+.card {
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    padding: 14px;
+    background: var(--color-bg);
+    transition: box-shadow var(--transition), transform var(--transition);
+
+    h3 {
+        margin: 0 0 6px;
+        font-size: 1rem;
+    }
+
+    p {
+        margin: 0 0 6px;
+    }
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+    }
+}
+
+.cookies__list {
+    padding-left: 18px;
+    margin: 0;
+    display: grid;
+    gap: 6px;
+}
+
+.cookies__table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+
+  caption {
+    text-align: left;
+    font-weight: 600;
+    margin-bottom: .75rem;
+    color: var(--color-text);
+  }
+
+  th, td {
+    padding: .75rem 1rem;
+    border: 1px solid var(--color-border);
+    text-align: left;
+  }
+
+  th {
+    background: var(--color-bg);
+    font-weight: 600;
+  }
+  
+  code {
+    font-family: monospace;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-size: 0.85em;
+  }
+}
+
+@media (max-width: 900px) {
+    .cookies__cards {
+        grid-template-columns: 1fr;
+    }
+}

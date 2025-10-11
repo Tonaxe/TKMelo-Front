@@ -1,0 +1,125 @@
+@use './variables';
+@use './mixins';
+@use './animations';
+
+:root {
+    color-scheme: dark;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Arial;
+    line-height: 1.5;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-shell {
+    padding-block: 24px;
+    flex: 1 0 auto;
+}
+
+.container {
+    @include mixins.container;
+}
+
+.section {
+    padding-block: 56px;
+}
+
+.grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.card {
+    @include mixins.card;
+    padding: 1.25rem;
+}
+
+.dim {
+    color: var(--color-text-dim);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    padding: .8rem 1rem;
+    border-radius: 999px;
+    font-weight: 600;
+    background: var(--color-primary);
+    color: #fff;
+    border: 0;
+    transition: transform var(--transition), filter var(--transition);
+
+    &:hover {
+        transform: translateY(-1px);
+        filter: brightness(1.06);
+    }
+
+    &--ghost {
+        background: transparent;
+        border: 1px solid var(--color-border);
+        color: var(--color-text);
+    }
+}
+
+.input,
+.select,
+.textarea {
+    width: 100%;
+    padding: .9rem 1rem;
+    border-radius: 12px;
+    background: #0f1217;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    outline: none;
+    transition: border-color var(--transition), box-shadow var(--transition);
+
+    &:focus {
+        border-color: var(--color-primary);
+        box-shadow: 0 0 0 3px rgba(225, 29, 72, .22);
+    }
+}
+
+.badge {
+    display: inline-block;
+    font-size: .8rem;
+    padding: .35rem .6rem;
+    border-radius: 999px;
+    background: #1a1d26;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-dim);
+}
+
+@media (max-width: 960px) {
+    .section {
+        padding-block: 40px;
+    }
+}

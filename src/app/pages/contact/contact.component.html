@@ -1,0 +1,172 @@
+<section id="contacto" class="contact" aria-labelledby="contact-title">
+  <div class="container">
+    <header class="contact__header">
+      <h1 id="contact-title">Contacto | TKMelo</h1>
+      <p class="dim">¿Tienes dudas, propuestas o quieres colaborar? Escríbenos y te respondemos lo antes posible.</p>
+    </header>
+
+    <div class="contact__grid">
+      <aside class="contact__info" aria-label="Información de contacto">
+        <h2>Cómo encontrarnos</h2>
+        <ul class="contact__list">
+          <li>
+            <i class="bi bi-envelope" aria-hidden="true"></i>
+            <a href="mailto:soporte&#64;tkmelo.app">soporte&#64;tkmelo.app</a>
+          </li>
+          <li>
+            <i class="bi bi-geo-alt" aria-hidden="true"></i>
+            Zaragoza, España
+          </li>
+          <li>
+            <i class="bi bi-instagram" aria-hidden="true"></i>
+            <a href="https://instagram.com/tkmelo" target="_blank" rel="me noopener noreferrer"
+              aria-label="Perfil oficial de TKMelo en Instagram">Instagram de TKMelo</a>
+          </li>
+          <li>
+            <i class="bi bi-tiktok" aria-hidden="true"></i>
+            <a href="https://www.tiktok.com/tkmelo" target="_blank" rel="me noopener noreferrer"
+              aria-label="Perfil oficial de TKMelo en TikTok">TikTok de TKMelo</a>
+          </li>
+        </ul>
+
+        <p class="contact__note dim">Horario de soporte: lunes a viernes de 9:00 a 18:00 (CET). Usuarios Pro con
+          prioridad de respuesta.</p>
+
+      </aside>
+
+      <div class="contact__form">
+        <h2>Escríbenos</h2>
+        <form method="post" action="/api/contacto" novalidate>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="name">Nombre</label>
+              <input id="name" name="name" type="text" inputmode="text" autocomplete="name" required minlength="2"
+                maxlength="80" placeholder="Tu nombre" spellcheck="false" />
+              <small class="error" aria-live="polite">Este campo es obligatorio.</small>
+            </div>
+
+            <div class="form-field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required
+                placeholder="tucorreo&#64;email.com" />
+              <small class="error" aria-live="polite">Introduce un email válido.</small>
+            </div>
+
+            <div class="form-field">
+              <label for="topic">Motivo</label>
+              <select id="topic" name="topic" aria-label="Motivo de contacto">
+                <option value="soporte" selected>Soporte</option>
+                <option value="facturacion">Facturación</option>
+                <option value="colaboracion">Colaboración</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="subject">Asunto</label>
+              <input id="subject" name="subject" type="text" placeholder="Cuéntanos brevemente el motivo"
+                maxlength="120" />
+            </div>
+
+            <div class="form-field form-field--full">
+              <label for="message">Mensaje</label>
+              <textarea id="message" name="message" rows="6" required minlength="10" maxlength="2000"
+                placeholder="Escribe tu mensaje con el máximo detalle posible..."></textarea>
+              <small class="error" aria-live="polite">Cuéntanos algo para poder ayudarte.</small>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label for="files">Adjuntar archivo (opcional)</label>
+              <input id="files" name="files" type="file" accept=".png,.jpg,.jpeg,.webp,.pdf" />
+            </div>
+
+            <div class="form-field form-field--full form-consent">
+              <label class="checkbox" for="consent">
+                <input type="checkbox" id="consent" name="consent" required />
+                <span>Acepto el tratamiento de mis datos según la <a routerLink="/privacidad">Política de
+                    privacidad</a>.</span>
+              </label>
+              <small class="error" aria-live="polite">Debes aceptar para continuar.</small>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary" aria-label="Enviar mensaje de contacto">Enviar</button>
+              <span class="sending dim" aria-live="polite" hidden>Enviando…</span>
+              <span class="success" role="status" aria-live="polite" hidden>Mensaje enviado. Te responderemos por
+                email.</span>
+              <span class="fail" role="alert" aria-live="assertive" hidden>Ha ocurrido un error. Inténtalo de
+                nuevo.</span>
+            </div>
+          </div>
+        </form>
+
+        <section class="contact__quickfaq" aria-labelledby="faq-title">
+          <h3 id="faq-title">Dudas rápidas</h3>
+          <ul>
+            <li><strong>¿Tiempo de respuesta?</strong> 24–48 h laborables. Pro con prioridad.</li>
+            <li><strong>¿Bajas y cancelaciones?</strong> Desde tu perfil → Suscripción.</li>
+            <li><strong>¿Soporte técnico?</strong> Incluye capturas y pasos para reproducir el problema.</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Inicio","item":"https://tkmelo.es/"},
+      {"@type":"ListItem","position":2,"name":"Contacto","item":"https://tkmelo.es/contacto"}
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"¿Cuál es el tiempo de respuesta?","acceptedAnswer":{"@type":"Answer","text":"Respondemos en 24–48 horas laborables. Las cuentas Pro tienen prioridad."}},
+      {"@type":"Question","name":"¿Cómo gestionar bajas o cancelaciones?","acceptedAnswer":{"@type":"Answer","text":"Desde tu perfil, en el apartado Suscripción, puedes gestionar bajas y cancelaciones."}},
+      {"@type":"Question","name":"¿Qué enviar para soporte técnico?","acceptedAnswer":{"@type":"Answer","text":"Incluye capturas y los pasos para reproducir el problema para agilizar la solución."}}
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ContactPage",
+    "name":"Contacto - TKMelo",
+    "url":"https://tkmelo.es/contacto"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"TKMelo",
+    "url":"https://tkmelo.es",
+    "email":"soporte@tkmelo.app",
+    "sameAs":[
+      "https://instagram.com/tkmelo",
+      "https://www.tiktok.com/@tkmelo"
+    ],
+    "contactPoint":{
+      "@type":"ContactPoint",
+      "contactType":"customer support",
+      "email":"soporte@tkmelo.app",
+      "areaServed":"ES",
+      "availableLanguage":["es","en"]
+    },
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"Zaragoza",
+      "addressCountry":"ES"
+    }
+  }
+  </script>
+</section>

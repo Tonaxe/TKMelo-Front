@@ -1,0 +1,23 @@
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity var(--transition), transform var(--transition);
+
+    &.is-visible {
+        opacity: 1;
+        transform: none;
+        animation: fadeSlideUp .6s both;
+    }
+}

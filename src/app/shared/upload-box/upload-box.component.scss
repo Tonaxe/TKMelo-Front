@@ -1,0 +1,16 @@
+.upload-box {
+    display: block;
+
+    .upload-box__inner {
+        text-align: center;
+        padding: 2rem;
+        background: var(--color-surface);
+        border: 1px dashed var(--color-border);
+        border-radius: 16px;
+        cursor: pointer;
+    }
+
+    &:hover .upload-box__inner {
+        background: #141720;
+    }
+}

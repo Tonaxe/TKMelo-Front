@@ -1,0 +1,113 @@
+<section class="section hero-section" aria-labelledby="hero-title" itemscope
+    itemtype="https://schema.org/SoftwareApplication">
+    <meta itemprop="applicationCategory" content="LifestyleApplication" />
+    <div class="container hero">
+        <div class="hero__copy" appAnimateOnScroll>
+            <h1 id="hero-title" class="hero__title" itemprop="name">Liga mejor con <span class="accent">TKMelo</span>
+            </h1>
+
+            <p class="hero__subtitle dim" id="hero-desc" itemprop="description">Abre conversaciones con frases
+                ingeniosas y responde a tus chats como un pro. Sube una captura, la leemos y te sugerimos la mejor
+                respuesta.</p>
+
+            <div class="hero__cta" role="group" aria-label="Acciones principales">
+                <a routerLink="/register" class="btn btn-primary" title="Probar TKMelo gratis"
+                    aria-describedby="hero-desc">Probar gratis</a>
+                <a routerLink="/login" class="btn btn--ghost" title="Entrar en TKMelo">Ya tengo cuenta</a>
+            </div>
+
+            <ul class="hero__trust" aria-label="Confianza y privacidad">
+                <li class="dim">Sin registros innecesarios</li>
+                <li class="dim">OCR en cliente</li>
+            </ul>
+        </div>
+
+        <aside class="hero__visual" appAnimateOnScroll aria-label="Vista previa de funciones">
+            <div class="card feature-card feature-card--big">
+                <div class="badge badge--tone">Función 1</div>
+                <h2 class="feature-title">Abridor de chat</h2>
+                <p class="dim small">Elige tono (gracioso, directo, romántico) y recibe 3 aperturas optimizadas.</p>
+            </div>
+
+            <div class="stacked-cards">
+                <div class="card feature-card feature-card--big">
+                    <div class="badge badge--tone">Función 2</div>
+                    <h2 class="feature-title">Responder desde imagen</h2>
+                    <p class="dim small">Sube una captura y recibe la respuesta perfecta según contexto.</p>
+                </div>
+            </div>
+        </aside>
+    </div>
+</section>
+
+<section class="section" aria-labelledby="features-title">
+    <div class="container features-grid">
+
+        <h2 id="features-title">Características principales</h2>
+        
+        <div class="card feature" appAnimateOnScroll>
+            <h3>IA práctica</h3>
+            <p class="dim">Sugerencias con contexto y tono — adaptadas al chat real, no frases genéricas.</p>
+        </div>
+
+        <div class="card feature" appAnimateOnScroll>
+            <h3>Privado</h3>
+            <p class="dim">Procesamos en cliente lo posible. No guardamos capturas salvo que lo autorices.</p>
+        </div>
+
+        <div class="card feature" appAnimateOnScroll>
+            <h3>Rápido</h3>
+            <p class="dim">Interfaz ligera pensada para responder en el momento — cero distracciones.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section" aria-labelledby="howto-title">
+    <div class="container" appAnimateOnScroll>
+        <div class="card how-it-works">
+            <h2 id="howto-title">Cómo funciona</h2>
+            <ol class="steps" aria-label="Pasos para usar TKMelo">
+                <li><strong>1.</strong> Crea tu cuenta</li>
+                <li><strong>2.</strong> Elige la herramienta</li>
+                <li><strong>3.</strong> Copia y pega la frase y envíala</li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<section class="section" aria-labelledby="ads-title">
+    <div class="container">
+        <app-ad-slot></app-ad-slot>
+    </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"SoftwareApplication",
+  "name":"TKMelo",
+  "applicationCategory":"LifestyleApplication",
+  "operatingSystem":"Web",
+  "description":"App para abrir conversaciones y responder chats con IA. Genera aperturas y respuestas a partir de capturas con procesado en cliente.",
+  "url":"https://tkmelo.es",
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"EUR",
+    "category":"Free"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"HowTo",
+  "name":"Cómo usar TKMelo",
+  "step":[
+    {"@type":"HowToStep","name":"Crea tu cuenta","text":"Regístrate gratis para empezar."},
+    {"@type":"HowToStep","name":"Elige la herramienta","text":"Selecciona abridor de chat o respuesta desde imagen."},
+    {"@type":"HowToStep","name":"Copia y envía","text":"Copia la frase sugerida y envíala en tu chat."}
+  ]
+}
+</script>

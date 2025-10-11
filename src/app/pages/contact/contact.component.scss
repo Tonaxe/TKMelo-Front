@@ -1,0 +1,236 @@
+.contact {
+    padding: clamp(40px, 6vw, 72px) 0;
+    background: var(--color-bg);
+
+    a {
+        color: var(--color-primary);
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: var(--color-primary-dark);
+    }
+}
+
+.contact__header {
+    text-align: center;
+    margin-bottom: 24px;
+
+    h1 {
+        margin: 0 0 8px;
+        font-size: clamp(1.6rem, 1.2rem + 1.2vw, 2.2rem);
+    }
+}
+
+.contact__grid {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 960px) {
+    .contact__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.contact__info {
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    padding: 16px;
+    background: var(--color-bg);
+    display: grid;
+    gap: 12px;
+
+    h2 {
+        margin: 0;
+        font-size: 1.05rem;
+    }
+}
+
+.contact__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+
+    li {
+        display: grid;
+        grid-template-columns: 24px 1fr;
+        align-items: center;
+        gap: 10px;
+
+        i {
+            font-size: 1.1rem;
+            color: var(--color-text-dim);
+        }
+    }
+}
+
+.contact__note {
+    font-size: .95rem;
+    margin-bottom: 25rem;
+}
+
+.contact__map .map-placeholder {
+    height: 180px;
+    border: 1px dashed var(--color-border);
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    color: var(--color-text-dim);
+}
+
+.contact__form {
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    padding: 16px;
+    background: var(--color-bg);
+
+    h2 {
+        margin: 0 0 12px;
+        font-size: 1.05rem;
+    }
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.form-field--full {
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 700px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact__note {
+        font-size: 0.95rem;
+        margin-bottom: revert-layer;
+    }
+}
+
+.form-field {
+    display: grid;
+    gap: 6px;
+
+    label {
+        font-weight: 600;
+    }
+
+    input,
+    select,
+    textarea {
+        width: 100%;
+        padding: 12px 14px;
+        border-radius: 12px;
+        border: 1px solid var(--color-border);
+        background: var(--color-bg);
+        color: var(--color-text);
+        outline: none;
+        transition: border-color var(--transition), box-shadow var(--transition);
+
+        &:focus {
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, .2);
+        }
+    }
+
+    textarea {
+        resize: vertical;
+    }
+
+    .error {
+        display: none;
+        color: var(--color-danger);
+        font-size: .85rem;
+    }
+
+    &.has-error .error {
+        display: block;
+    }
+}
+
+.form-consent .checkbox {
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    gap: 10px;
+    align-items: start;
+
+    input[type="checkbox"] {
+        margin-top: 2px;
+        width: 18px;
+        height: 18px;
+        accent-color: var(--color-primary);
+    }
+}
+
+.form-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: .5rem;
+        padding: 10px 16px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 700;
+        border: 1px solid var(--color-border);
+        transition: transform var(--transition), box-shadow var(--transition), background var(--transition), border var(--transition);
+    }
+
+    .btn-primary {
+        background: var(--color-primary);
+        color: #fff;
+        border-color: transparent;
+    }
+
+    .btn-primary:hover {
+        background: var(--color-primary-dark);
+        transform: translateY(-1px);
+        box-shadow: 0 8px 18px rgba(79, 70, 229, .22);
+    }
+
+    .sending {
+        font-size: .95rem;
+    }
+
+    .success {
+        color: #16a34a;
+        font-weight: 600;
+    }
+
+    .fail {
+        color: var(--color-danger);
+        font-weight: 600;
+    }
+}
+
+.contact__quickfaq {
+    margin-top: 16px;
+    border-top: 1px dashed var(--color-border);
+    padding-top: 14px;
+
+    h3 {
+        margin: 0 0 8px;
+        font-size: 1rem;
+    }
+
+    ul {
+        margin: 0;
+        padding-left: 18px;
+        display: grid;
+        gap: 6px;
+    }
+}
