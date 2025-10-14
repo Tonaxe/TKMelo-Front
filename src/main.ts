@@ -5,17 +5,9 @@ import { NavigationEnd, provideRouter, Router, withInMemoryScrolling } from '@an
 import { routes } from './app/app.routes';
 import { filter } from 'rxjs';
 
-bootstrapApplication(AppComponent, {
-  providers: [
-    provideRouter(routes)
-  ]
-}).then(ref => {
+bootstrapApplication(AppComponent, appConfig).then(ref => {
   const router = ref.injector.get(Router);
   router.events.pipe(filter(e => e instanceof NavigationEnd)).subscribe(() => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   });
 });

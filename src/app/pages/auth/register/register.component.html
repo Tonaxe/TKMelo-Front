@@ -4,16 +4,19 @@
             <h2>Crear cuenta</h2>
             <p class="dim" style="margin-bottom:1rem;">Regístrate para empezar</p>
 
-            <form class="grid" style="gap:.8rem;">
-                <input class="input" type="text" placeholder="Nombre" />
-                <input class="input" type="email" placeholder="Email" />
-                <input class="input" type="password" placeholder="Contraseña" />
-                <button class="btn" type="button">Crear cuenta</button>
+            <form class="grid" style="gap:.8rem;" [formGroup]="form" (ngSubmit)="onSubmit()">
+                <input class="input" type="text" placeholder="Nombre" formControlName="fullName" />
+                <input class="input" type="email" placeholder="Email" formControlName="email" />
+                <input class="input" type="password" placeholder="Contraseña" formControlName="password" />
+                <button class="btn" type="submit" [disabled]="form.invalid || loading">
+                    {{ loading ? 'Creando...' : 'Crear cuenta' }}
+                </button>
             </form>
 
-            <p class="dim" style="margin-top:1rem;">
-                ¿Ya tienes cuenta? <a routerLink="/login">Iniciar sesión</a>
+            <p class="dim" style="margin-top:1rem;">¿Ya tienes cuenta? <a routerLink="/login">Iniciar sesión</a></p>
+            <p *ngIf="ok" class="dim" style="color:#10b981;margin-top:.5rem;">¡Revisa tu email para verificar la cuenta!
             </p>
+            <p *ngIf="error" class="dim" style="color:#ef4444;margin-top:.5rem;">{{error}}</p>
         </div>
     </div>
 </section>

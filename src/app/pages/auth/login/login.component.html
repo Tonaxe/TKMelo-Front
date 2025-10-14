@@ -4,15 +4,16 @@
             <h2>Iniciar sesión</h2>
             <p class="dim" style="margin-bottom:1rem;">Entra para usar TKMelo</p>
 
-            <form class="grid" style="gap:.8rem;">
-                <input class="input" type="email" placeholder="Email" />
-                <input class="input" type="password" placeholder="Contraseña" />
-                <button class="btn" type="button">Entrar</button>
+            <form class="grid" style="gap:.8rem;" [formGroup]="form" (ngSubmit)="onSubmit()">
+                <input class="input" type="email" placeholder="Email" formControlName="email" />
+                <input class="input" type="password" placeholder="Contraseña" formControlName="password" />
+                <button class="btn" type="submit" [disabled]="form.invalid || loading">
+                    {{ loading ? 'Entrando...' : 'Entrar' }}
+                </button>
             </form>
 
-            <p class="dim" style="margin-top:1rem;">
-                ¿No tienes cuenta? <a routerLink="/register">Crear cuenta</a>
-            </p>
+            <p class="dim" style="margin-top:1rem;">¿No tienes cuenta? <a routerLink="/register">Crear cuenta</a></p>
+            <p *ngIf="error" class="dim" style="color:#ef4444;margin-top:.5rem;">{{error}}</p>
         </div>
     </div>
 </section>
