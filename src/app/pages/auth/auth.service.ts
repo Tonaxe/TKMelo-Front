@@ -7,32 +7,36 @@ import { RegisterRequest, RegisterResponse, LoginRequest, LoginResponse, Refresh
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private http  = inject(HttpClient);
-  private store = inject(AuthStore);
-  private base  = "https://localhost:44338/api/Auth";
+    private http = inject(HttpClient);
+    private store = inject(AuthStore);
+    private base = "https://localhost:44338/api/Auth";
 
-  register(body: RegisterRequest) {
-    return this.http.post<RegisterResponse>(`${this.base}/register`, body);
-  }
+    register(body: RegisterRequest) {
+        return this.http.post<RegisterResponse>(`${this.base}/register`, body);
+    }
 
-  login(body: LoginRequest) {
-    return this.http.post<LoginResponse>(`${this.base}/login`, body).pipe(
-      tap(res => this.store.setAuth(res))
-    );
-  }
+    login(body: LoginRequest) {
+        return this.http.post<LoginResponse>(`${this.base}/login`, body).pipe(
+            tap(res => this.store.setAuth(res))
+        );
+    }
 
-  refresh(): Observable<RefreshResponse> {
-    const refreshToken = this.store.refreshToken;
-    return this.http.post<RefreshResponse>(`${this.base}/refresh`, { refreshToken }).pipe(
-      tap(res => this.store.setTokens(res.accessToken, res.accessTokenExpiresAt, res.refreshToken, res.refreshTokenExpiresAt))
-    );
-  }
+    verifyEmail(token: string) {
+        return this.http.post<void>(`${this.base}/verify-email`, { token });
+    }
 
-  logout() {
-    return this.http.post<void>(`${this.base}/logout`, {}).pipe(
-      tap(() => this.store.clear())
-    );
-  }
+    refresh(): Observable<RefreshResponse> {
+        const refreshToken = this.store.refreshToken;
+        return this.http.post<RefreshResponse>(`${this.base}/refresh`, { refreshToken }).pipe(
+            tap(res => this.store.setTokens(res.accessToken, res.accessTokenExpiresAt, res.refreshToken, res.refreshTokenExpiresAt))
+        );
+    }
 
-  clearLocal() { this.store.clear(); }
+    logout() {
+        return this.http.post<void>(`${this.base}/logout`, {}).pipe(
+            tap(() => this.store.clear())
+        );
+    }
+
+    clearLocal() { this.store.clear(); }
 }

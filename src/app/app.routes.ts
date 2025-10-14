@@ -10,6 +10,7 @@ import { PrivacityComponent } from './pages/privacity/privacity.component';
 import { TermsComponent } from './pages/terms/terms.component';
 import { CookiesComponent } from './pages/cookies/cookies.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { VerifyEmailComponent } from './pages/auth/verify-email/verify-email.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent, title: 'TKMelo — Tu wingman con IA' },
@@ -23,5 +24,6 @@ export const routes: Routes = [
     { path: 'terminos', component: TermsComponent, title: 'Terminos — TKMelo' },
     { path: 'cookies', component: CookiesComponent, title: 'Cookies — TKMelo' },
     { path: 'contacto', component: ContactComponent, title: 'Contacto — TKMelo' },
+    { path: 'verificar-correo', component: VerifyEmailComponent, title: 'Verificacion — TKMelo' },
     { path: '**', redirectTo: '' }
 ];

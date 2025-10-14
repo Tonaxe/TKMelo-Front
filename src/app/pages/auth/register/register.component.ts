@@ -30,7 +30,7 @@ export class RegisterComponent {
     const { fullName, email, password } = this.form.getRawValue();
 
     this.svc.register({ fullName: fullName!, email: email!, password: password! }).subscribe({
-      next: () => { this.loading = false; this.ok = true; this.router.navigateByUrl('/dashboard'); },
+      next: () => { this.loading = false; this.ok = true; this.router.navigate(['/verificar-correo'], { queryParams: { sent: 1 } }); },
       error: e => { this.loading = false; this.error = e?.error?.error ?? 'No se pudo crear la cuenta'; }
     });
   }

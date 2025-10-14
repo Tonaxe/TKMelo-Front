@@ -1,0 +1,32 @@
+<section class="section">
+    <div class="container" style="max-width:480px;">
+        <div class="card" appAnimateOnScroll>
+            <h2>Verificar email</h2>
+            <p class="dim" style="margin-bottom:1rem;">{{ message }}</p>
+
+            <ng-container [ngSwitch]="status">
+                <div *ngSwitchCase="'idle'">
+                    <p class="dim">Revisa tu bandeja de entrada y pulsa el enlace de verificación.</p>
+                    <p class="dim">Si no lo ves, mira en Spam o solicita reenviar.</p>
+                    <a class="btn" routerLink="/login" style="margin-top:1rem;display:inline-block;">Ir a iniciar
+                        sesión</a>
+                </div>
+
+                <div *ngSwitchCase="'loading'">
+                    <p class="dim">Verificando…</p>
+                </div>
+
+                <div *ngSwitchCase="'ok'">
+                    <p style="color:#10b981;">{{ message }}</p>
+                    <a class="btn" routerLink="/login" style="margin-top:1rem;display:inline-block;">Iniciar sesión</a>
+                </div>
+
+                <div *ngSwitchCase="'error'">
+                    <p style="color:#ef4444;">{{ message }}</p>
+                    <a class="btn" routerLink="/register" style="margin-top:1rem;display:inline-block;">Volver al
+                        registro</a>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</section>
