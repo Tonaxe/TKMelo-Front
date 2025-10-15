@@ -12,10 +12,34 @@
                 <li><a routerLink="/faq" class="nav__link">FAQ</a></li>
             </ul>
 
-            <div class="nav__cta">
-                <a routerLink="/login" class="btn btn--ghost">Entrar</a>
-                <a routerLink="/register" class="btn">Crear cuenta</a>
-            </div>
+            <ng-container *ngIf="!(auth$ | async)?.accessToken; else userMenu">
+                <div class="nav__cta">
+                    <a routerLink="/login" class="btn btn--ghost">Entrar</a>
+                    <a routerLink="/register" class="btn">Crear cuenta</a>
+                </div>
+            </ng-container>
+
+            <ng-template #userMenu>
+                <div class="user" [class.open]="menuOpen">
+                    <button class="avatar" (click)="toggleMenu()" aria-haspopup="menu" [attr.aria-expanded]="menuOpen">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5z" />
+                        </svg>
+                    </button>
+
+                    <div class="menu" *ngIf="menuOpen">
+                        <div class="menu__header">
+                            <div class="name">{{ (auth$ | async)?.fullName }}</div>
+                            <div class="email">{{ (auth$ | async)?.email }}</div>
+                        </div>
+
+                        <a routerLink="/dashboard" class="menu__item">Mi panel</a>
+                        <a routerLink="/perfil" class="menu__item">Mi perfil</a>
+                        <button class="menu__item danger" (click)="logout()">Salir</button>
+                    </div>
+                </div>
+            </ng-template>
         </nav>
     </div>
 </header>
