@@ -11,7 +11,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 0;
+    padding: 1rem 0;
 }
 
 .brand {
@@ -45,6 +45,7 @@
     margin: 0;
     padding: 0;
     list-style: none;
+    align-items: anchor-center;
 }
 
 .nav__link {
@@ -88,7 +89,6 @@
         width: 22px;
         height: 22px;
         fill: #fff;
-        /* icono blanco */
         opacity: .92;
     }
 }
@@ -104,7 +104,6 @@
     box-shadow: 0 12px 32px rgba(0, 0, 0, .35);
     padding: .4rem;
     z-index: 50;
-    /* por encima del header */
     animation: fadeIn .12s ease-out;
 }
 
@@ -127,6 +126,10 @@
     }
 }
 
+.btn {
+    padding: 0.5rem 0.75rem;
+}
+
 .menu__item {
     width: 100%;
     display: block;
@@ -145,6 +148,39 @@
 
     &.danger {
         color: #f87171;
+    }
+}
+
+.app__links .nav__link.active {
+    background: var(--color-surface-2);
+}
+
+.logout-btn {
+    display: flex;
+    align-items: center;
+    gap: .45rem;
+    padding: .7rem .75rem;
+    border: 1px solid var(--color-border);
+    background: transparent;
+    color: var(--color-text);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background .2s ease, border-color .2s ease, transform .08s ease;
+
+    svg {
+        width: 18px;
+        height: 18px;
+        fill: #fff;
+        opacity: .9;
+    }
+
+    &:hover {
+        background: var(--color-surface-2);
+        border-color: var(--color-primary);
+    }
+
+    &:active {
+        transform: scale(.98);
     }
 }
 

@@ -1,9 +1,12 @@
 .upload-box {
     display: block;
+    width: 50%;
+    margin-top: 2rem;
+    justify-self: anchor-center;
 
     .upload-box__inner {
         text-align: center;
-        padding: 2rem;
+        padding: 1rem;
         background: var(--color-surface);
         border: 1px dashed var(--color-border);
         border-radius: 16px;

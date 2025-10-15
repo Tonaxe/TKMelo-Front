@@ -6,39 +6,40 @@
         </a>
 
         <nav class="nav">
-            <ul class="nav__links">
+            <ul class="nav__links" *ngIf="!isAppHeader">
                 <li><a routerLink="/como-funciona" class="nav__link">Cómo funciona</a></li>
                 <li><a routerLink="/planes" class="nav__link">Precios</a></li>
                 <li><a routerLink="/faq" class="nav__link">FAQ</a></li>
             </ul>
 
-            <ng-container *ngIf="!(auth$ | async)?.accessToken; else userMenu">
+            <ng-container *ngIf="!(auth$ | async)?.accessToken; else appNav">
                 <div class="nav__cta">
                     <a routerLink="/login" class="btn btn--ghost">Entrar</a>
                     <a routerLink="/register" class="btn">Crear cuenta</a>
                 </div>
             </ng-container>
 
-            <ng-template #userMenu>
-                <div class="user" [class.open]="menuOpen">
-                    <button class="avatar" (click)="toggleMenu()" aria-haspopup="menu" [attr.aria-expanded]="menuOpen">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path
-                                d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5z" />
-                        </svg>
-                    </button>
-
-                    <div class="menu" *ngIf="menuOpen">
-                        <div class="menu__header">
-                            <div class="name">{{ (auth$ | async)?.fullName }}</div>
-                            <div class="email">{{ (auth$ | async)?.email }}</div>
-                        </div>
-
-                        <a routerLink="/dashboard" class="menu__item">Mi panel</a>
-                        <a routerLink="/perfil" class="menu__item">Mi perfil</a>
-                        <button class="menu__item danger" (click)="logout()">Salir</button>
+            <ng-template #appNav>
+                <ul class="nav__links app__links" *ngIf="isAppHeader; else userShort">
+                    <li><a routerLink="/dashboard" class="nav__link" routerLinkActive="active">Panel</a></li>
+                    <li><a routerLink="/perfil" class="nav__link" routerLinkActive="active">Perfil</a></li>
+                    <li>
+                        <button class="logout-btn" (click)="logout()" aria-label="Salir">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8v-2H6V5h8V3zm2.59 7L15 8.41 18.59 5 20 6.41 17.41 9 20 11.59 18.59 13 15 9.41 16.59 11H11v2h5.59z" />
+                            </svg>
+                            <span>Salir</span>
+                        </button>
+                    </li>
+                </ul>
+                
+                <ng-template #userShort>
+                    <div class="nav__cta">
+                        <a routerLink="/dashboard" class="btn btn--ghost">Ir al panel</a>
+                        <button class="btn danger" (click)="logout()">Salir</button>
                     </div>
-                </div>
+                </ng-template>
             </ng-template>
         </nav>
     </div>

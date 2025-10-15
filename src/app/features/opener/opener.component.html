@@ -3,16 +3,34 @@
     <p class="dim">Elige el tono y obtén sugerencias.</p>
 
     <div class="tones">
-        <label><input type="radio" name="tone" checked /> Gracioso</label>
-        <label><input type="radio" name="tone" /> Directo</label>
-        <label><input type="radio" name="tone" /> Romántico</label>
+        <label>
+            <input type="radio" name="tone" [(ngModel)]="tone" value="gracioso" />
+            Gracioso
+        </label>
+        <label>
+            <input type="radio" name="tone" [(ngModel)]="tone" value="directo" />
+            Directo
+        </label>
+        <label>
+            <input type="radio" name="tone" [(ngModel)]="tone" value="romantico" />
+            Romántico
+        </label>
     </div>
 
-    <button class="btn" type="button">Generar frases</button>
+    <label class="dim ctx-label">Contexto (opcional)</label>
+    <textarea [(ngModel)]="context" rows="2"
+        placeholder="Ej: le mola el gym y los perretes; es fan de Harry Potter..."></textarea>
 
-    <div class="grid examples">
-        <div class="card">“Ejemplo de frase ingeniosa 1”</div>
-        <div class="card">“Ejemplo de frase ingeniosa 2”</div>
-        <div class="card">“Ejemplo de frase ingeniosa 3”</div>
+    <button class="btn" type="button" (click)="generate()" [disabled]="loading">
+        {{ loading ? 'Generando…' : 'Generar frases' }}
+    </button>
+
+    <div *ngIf="error" class="error">{{ error }}</div>
+
+    <div class="grid examples" *ngIf="ideas.length">
+        <div class="card example" *ngFor="let i of ideas">
+            “{{ i }}”
+            <button class="ghost" (click)="copy(i)" title="Copiar">Copiar</button>
+        </div>
     </div>
 </div>
